@@ -4,12 +4,14 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const contatosRoutes = require('./routes/contatos');
+const operadorasRoutes = require('./routes/operadoras');
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use("/api/contatos", contatosRoutes);
+app.use("/api/operadoras", operadorasRoutes);
 
 app.use(function(req, res, next) {
   let err = new Error("Not Found");
